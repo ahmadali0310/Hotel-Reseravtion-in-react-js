@@ -1,0 +1,470 @@
+@import "./_colors.scss";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+.line {
+  width: 15rem;
+  height: 0.5rem;
+  background: $primaryColor;
+  margin-bottom: 10rem;
+}
+.btn_primary__room {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 3px solid $primaryColor;
+  transition: $mainTransition;
+  &:hover {
+    color: white;
+    background: $primaryColor;
+  }
+}
+.btn_primary {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  background: $primaryColor;
+  border: 3px solid $primaryColor;
+  transition: $mainTransition;
+  &:hover {
+    color: $primaryColor;
+    background: transparent;
+  }
+  @media screen and (max-width: 477px) {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+}
+/****** Navbar *******/
+
+.navbar {
+  width: 100%;
+  min-height: 8vh;
+  background: $mainGrey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 1rem 1rem 0rem rgba($color: #000000, $alpha: 0.1);
+
+  & .nav_links {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    & li {
+      & a {
+        font-size: 2rem;
+        text-decoration: none;
+        color: #000000;
+      }
+    }
+  }
+}
+.icon {
+  font-size: 2.5rem;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+ul.nav_links.active {
+  transform: translate(0);
+}
+/************    Hero Section      *************/
+.defaultHero,
+.roomsHero {
+  width: 100%;
+  min-height: 92vh;
+  background: url(../images/defaultBcg.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.roomsHero {
+  min-height: 60vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  background: url(../images/room-2.jpeg);
+}
+/********     Banner     *********/
+.banner {
+  padding: 5rem;
+  background: rgba($color: #000000, $alpha: 0.4);
+  color: $mainWhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 984px) {
+    padding: 3rem;
+  }
+
+  h1 {
+    font-size: 10rem;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 984px) {
+      font-size: 7rem;
+    }
+    @media screen and (max-width: 700px) {
+      font-size: 5rem;
+    }
+    @media screen and (max-width: 515px) {
+      font-size: 2rem;
+    }
+  }
+  .line {
+    width: 25rem;
+    height: 0.5rem;
+    margin-bottom: 2rem;
+    background-color: $primaryColor;
+    @media screen and (max-width: 477px) {
+      width: 10rem;
+    }
+  }
+  p {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 700px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/**********  Services   **********/
+.services {
+  display: grid;
+  place-items: center;
+  padding: 5rem;
+  background: $darkGrey;
+  h1 {
+    font-size: 5rem;
+    color: $mainBlack;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 529px) {
+      font-size: 3rem;
+    }
+  }
+
+  .services_center {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    grid-gap: 2rem;
+    &_item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background: $darkGrey;
+      text-align: center;
+      svg {
+        font-size: 5rem;
+        color: $primaryColor;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-weight: 300;
+      }
+      p {
+        font-size: 1.8rem;
+        max-width: 40ch;
+      }
+    }
+  }
+  @media screen and (max-width: 415px) {
+    padding: 1rem;
+  }
+}
+/********   Room   *******/
+.room {
+  .img_container {
+    position: relative;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .price {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba($color: #000000, $alpha: 0.8);
+      color: $mainWhite;
+      font-size: 2rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom-right-radius: 1rem;
+      display: grid;
+      place-items: center;
+    }
+    .hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.4);
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transition: $mainTransition;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .room_name {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: $darkGrey;
+    p {
+      font-size: 2rem;
+    }
+  }
+}
+
+/***********   Featured Rooms     ************/
+.featured_rooms {
+  display: grid;
+  place-items: center;
+  padding: 5rem;
+  background: $mainGrey;
+  h1 {
+    font-size: 5rem;
+    color: $mainBlack;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 529px) {
+      font-size: 3rem;
+    }
+  }
+  .rooms_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 3rem;
+  }
+  @media screen and (max-width: 415px) {
+    padding: 1rem;
+  }
+}
+
+/***********  Single Room     ***********/
+.img_container_singleRoom {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3rem;
+  padding: 10rem;
+  .img {
+    img {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 525px) {
+    padding: 1rem;
+  }
+}
+.details_container {
+  width: 100%;
+  display: flex;
+  padding: 10rem;
+  flex-wrap: wrap;
+  .description {
+    flex: 1 1 50rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 2.5rem;
+      @media screen and (max-width: 425px) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .info {
+    flex: 1 1 30rem;
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+    h6 {
+      font-size: 2rem;
+      line-height: 5rem;
+      letter-spacing: 0.5rem;
+      font-weight: 200;
+      @media screen and (max-width: 525px) {
+        font-size: 1.2rem;
+        line-height: 4rem;
+      }
+    }
+  }
+  @media screen and (max-width: 525px) {
+    padding: 1rem;
+  }
+}
+.extra_container {
+  max-width: 100%;
+  display: flex;
+  padding: 10rem;
+  flex-wrap: wrap;
+  position: relative;
+  h1 {
+    position: absolute;
+    top: 4rem;
+    font-size: 4rem;
+    @media screen and (max-width: 525px) {
+      top: -2rem;
+      font-size: 4rem;
+      line-height: 0rem;
+    }
+  }
+  .extra {
+    flex: 0 1 40rem;
+    p {
+      font-size: 1.8rem;
+      margin: 1rem 0rem;
+      font-weight: bold;
+      @media screen and (max-width: 525px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  @media screen and (max-width: 525px) {
+    padding: 1rem;
+    top: 5rem;
+  }
+}
+/*************    RoomList     **************/
+.room_list {
+  display: grid;
+  place-items: center;
+  padding: 5rem;
+  background: $mainGrey;
+  h1 {
+    font-size: 5rem;
+    color: $mainBlack;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 529px) {
+      font-size: 3rem;
+    }
+  }
+  .rooms_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 3rem;
+  }
+  @media screen and (max-width: 415px) {
+    padding: 1rem;
+  }
+}
+/************* Room Filter ****************/
+.filter {
+  display: grid;
+  place-items: center;
+  padding: 5rem;
+  h1 {
+    font-size: 5rem;
+    color: $mainBlack;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 529px) {
+      font-size: 3rem;
+    }
+  }
+  .line {
+    margin-bottom: 2rem;
+  }
+  @media screen and (max-width: 415px) {
+    padding: 1rem;
+    padding-bottom: 4rem;
+  }
+}
+.input_container {
+  width: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 8rem;
+  .input {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 3rem;
+
+    div {
+      width: 50%;
+      height: 100%;
+      @media screen and (max-width: 927px) {
+        width: 80%;
+      }
+      label {
+        display: block;
+        font-size: 2rem;
+        padding-bottom: 1rem;
+      }
+      select {
+        font-size: 2rem;
+        width: 100%;
+        height: 70%;
+        padding: 0rem 2rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .navbar .nav_links {
+    position: fixed;
+    width: 50%;
+    min-height: 92vh;
+    top: 8vh;
+    right: 0;
+    background: $mainGrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0rem 1rem 1rem 0rem rgba($color: #000000, $alpha: 0.1);
+    z-index: 999;
+    transform: translate(100%);
+    transition: all 0.3s cubic-bezier(1, -0.23, 0.2, 1.01);
+    & li {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 529px) {
+  .line {
+    margin-bottom: 2rem;
+  }
+}
